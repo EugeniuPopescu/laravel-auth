@@ -6,23 +6,6 @@
     <div class="row">
         <h1>Insert new Portfolio</h1>
     </div>
-    
-    {{-- VALIDATION --}}
-    {{-- <div class="row">
-        <div class="col-6">
-
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>- {{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-                    
-        </div>
-    </div> --}}
 
     <div class="row">
         <div class="col-6">
@@ -40,14 +23,21 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
+                
                 {{-- description  --}}
                 <div class="mb-3">
                     <label for="description"  class="form-label">Description</label>
-                    <textarea class="form-control" rows="2" id="description" name="description"></textarea>
+                    <textarea class="form-control @error("description") is-invalid @enderror" rows="2" id="description" name="description" value="{{ old("description") }}"></textarea>
+
+                    {{-- error message --}}
+                    @error("description")
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
+                
                 {{-- img  --}}
                 <div class="mb-3">
-                    <label for="thumb" class="form-label">Img</label>
+                    <label for="img" class="form-label">Img</label>
                     <input type="text" class="form-control @error("img") is-invalid @enderror" id="img" name="img" value="{{ old("img") }}">
 
                     {{-- error message --}}
@@ -55,6 +45,18 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
+                
+                {{-- role --}}
+                <div class="mb-3">
+                    <label for="role" class="form-label">Role</label>
+                    <input type="text" class="form-control @error("role") is-invalid @enderror" id="role" name="role" value="{{ old("role") }}">
+
+                    {{-- error message --}}
+                    @error("role")
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
                 <button type="submit" class="btn btn-dark">Create</button>
                 </form>
         </div>

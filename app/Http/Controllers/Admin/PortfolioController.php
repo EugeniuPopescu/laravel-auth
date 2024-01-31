@@ -8,8 +8,6 @@ use App\Models\Portfolio;
 
 use App\Http\Controllers\Controller;
 
-use App\Http\Requests\PortfolioRequest;
-
 class PortfolioController extends Controller
 {
     /**
@@ -35,6 +33,13 @@ class PortfolioController extends Controller
      */
     public function store(StorePortfolioRequest $request)
     {
+        $validated = $request->validated();
+
+        $new_portfolio = new Portfolio();
+        $new_portfolio->fill($validated);
+        $new_portfolio->save();
+
+        return redirect()->route("admin.portfolios.index");
     }
 
     /**
