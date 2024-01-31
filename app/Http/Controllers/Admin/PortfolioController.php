@@ -1,10 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\StorePortfolioRequest;
 use App\Http\Requests\UpdatePortfolioRequest;
 use App\Models\Portfolio;
+
+use App\Http\Controllers\Controller;
+
+use App\Http\Requests\PortfolioRequest;
 
 class PortfolioController extends Controller
 {
