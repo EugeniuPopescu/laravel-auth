@@ -42,6 +42,20 @@
     								</a>
     							</li>
 
+								{{-- index --}}
+								<li class="nav-item">
+    								<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.portfolios.index' ? 'bg-secondary' : '' }}" href="{{route('admin.portfolios.index')}}">
+    									<i class="fa-solid fa-address-card fa-lg fa-fw"></i> Portfolios
+    								</a>
+    							</li>
+
+								{{-- create --}}
+								<li class="nav-item">
+    								<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.portfolios.create' ? 'bg-secondary' : '' }}" href="{{route('admin.portfolios.create')}}">
+    									<i class="fa-solid fa-square-plus fa-lg fa-fw"></i> Create
+    								</a>
+    							</li>
+
     							<li class="nav-item">
     								<a class="nav-link text-white" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
     									<i class="fa-solid fa-sign-out-alt fa-lg fa-fw"></i> {{ __('Logout') }}
@@ -56,7 +70,7 @@
     					</div>
     				</nav>
 
-    				<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    				<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 bg-dark-subtle">
     					@yield('content')
     				</main>
     			</div>

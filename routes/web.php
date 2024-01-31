@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController; //<---- Import del controller precedentemente creato!
 use App\Http\Controllers\Admin\PortfolioController; // <---- Importare il controller da usare!!
 
+use App\Models\Portfolio;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,7 +32,7 @@ Route::middleware(['auth']) // middleware che ci dice solo per i clienti autoriz
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
         // Admin Post CRUD
-        Route::resource('posts', PortfolioController::class);
+        Route::resource('portfolios', PortfolioController::class);
     });
 
 require __DIR__ . '/auth.php';
