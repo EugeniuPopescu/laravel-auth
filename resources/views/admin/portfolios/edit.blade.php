@@ -9,7 +9,7 @@
 
     <div class="row">
         <div class="col-6">
-            <form action="{{ route("admin.portfolios.store") }}" method="POST">
+            <form action="{{ route("admin.portfolios.update", $portfolio->id) }}" method="POST">
                 {{-- cross scripting request forgery --}}
                 @csrf
 

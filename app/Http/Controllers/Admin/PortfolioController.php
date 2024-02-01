@@ -63,15 +63,14 @@ class PortfolioController extends Controller
      */
     public function update(UpdatePortfolioRequest $request, Portfolio $portfolio)
     {
-        $data = $request->all();
+        $validated_data = $request->validated();
 
-        $validated_data = $this->validation($data);
-
-        $portfolio->update($validated_data);
+        $portfolio->fill($validated_data);
+        $portfolio->update();
 
         // ddd($data);
 
-        return redirect()->route("admin.portfolios.show", $portfolio->id);
+        return redirect()->route("admin.portfolios.index");
     }
 
     /**
